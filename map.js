@@ -183,9 +183,9 @@ function applyFilters() {
             // マーカーを作成
             const marker = L.marker([data.lat,data.lng]).addTo(map);  // https://leafletjs.com/reference.html#marker を参照
             // マーカーにポップアップコンテンツを紐付け
-            marker.bindPopup([data.lat,data.lng], addTo(map))     // https://leafletjs.com/reference.html#layer-bindpopup を参照
+            marker.bindPopup(popupContent).openPopup();     // https://leafletjs.com/reference.html#layer-bindpopup を参照
             // マーカーを地図に配置
-            L.marker([data.lat,data.lng]).addTo(map);    // https://leafletjs.com/reference.html#marker を参照
+            L.marker([data.lat,data.lng])   // https://leafletjs.com/reference.html#marker を参照
 
             markersArray.push({ instance: marker });
             bounds.push([data.lat, data.lng]);
@@ -220,4 +220,3 @@ function applyFilters() {
 //////////////////////////////////////////////////////////////////////////////////////////
 areaSelect.addEventListener('change', applyFilters);
 districtSelect.addEventListener('change', applyFilters);
-
